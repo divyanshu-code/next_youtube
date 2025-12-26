@@ -1,0 +1,57 @@
+########## 1> Routing :- it is the technique to move form one page to another page in webpages. 
+
+routing in react and routing in next.js are different . 
+we perform routing in react by the help of react-router-dom package inside Routes in app.jsx
+
+but in next.js react router dom is inbuilt functionality where we perform routing simply in page.js
+we need to make a componanent with same name as main file. hence routing is done in next.js 
+
+for example :- we have main file named as page.js 
+               if we want make a about section then first make about folder inside app and make page.js file inside about folder. and write your about content.
+
+hence routing done in next.js  
+
+Note :- your route name will be similar as your folder name like in abouve case /about your route as your folder name is about.
+
+########## 2> nested routing :- Routing inside routing 
+    
+    To perform nested routing in next.js we have to perform the sme steps as we did to make a our route.
+
+    for example :- inside 
+                   /Project there are two more route /fuelfit and /food_paradise . to reach out to fuelfit we have to write our route /Project/fuelfit inside project folder in page.js
+
+                   /Project ----> /Project/fuelfit ----> /Project/fuelfit/aboutfuelfit        it is the nexted routing.
+
+########## 3> dynamic routing 
+         
+       
+       it is routing that involves any route after / . it means in this we dont have to specified our route. we just use / ( anything name or string).
+
+       to use dynamic route we have to make a folder name as [ with anyname ].
+
+########## 4> next.js supportes both client side and server side renderring that's why we have to mention at the top of file either we are using client side renderring or server side renderring  
+
+ and all the hooks comes under in client side renderring that's why we have to mention 'use client' before using any hooks in next.js
+       
+########## 5> API fetching in next.js 
+   
+   const data = await fetch();
+   const data1 = await data.json();
+
+   basically it all done in server componanent
+
+   but we can do this in clinet componanent with the help of use() hook and we dont need to use async or await 
+
+   client componanent :- run two times one in server to get the data then in client (browser) that is called streaming the data from server to client.
+   server componanent :- run only once in server to get the data.
+
+######### 6> 
+
+ creating a api route in the next.js 
+
+ like if we want a api route like this api/posts 
+     then we have to make folder structure like this 
+            
+            first api folder then inside posts folder and inside that make route.js .
+
+######### 7> json placeholder :- collection of fake api for the testing and prototyping.
