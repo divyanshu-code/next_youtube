@@ -34,24 +34,42 @@ Note :- your route name will be similar as your folder name like in abouve case 
  and all the hooks comes under in client side renderring that's why we have to mention 'use client' before using any hooks in next.js
        
 ########## 5> API fetching in next.js 
+
+   in sevrer component we can use async or it highly recommended to use fetch() function for fetching the data. because fetch() provide  all other functionality also rather than  fetching only in next.js
    
    const data = await fetch();
    const data1 = await data.json();
 
    basically it all done in server componanent
 
-   but we can do this in clinet componanent with the help of use() hook and we dont need to use async or await 
+   but we can do this in client componanent with the help of use() hook and we dont need to use async or await 
 
    client componanent :- run two times one in server to get the data then in client (browser) that is called streaming the data from server to client.
    server componanent :- run only once in server to get the data.
 
-######### 6> 
-
- creating a api route in the next.js 
+######### 6> creating a api route in the next.js 
 
  like if we want a api route like this api/posts 
      then we have to make folder structure like this 
             
-            first api folder then inside posts folder and inside that make route.js .
+            first api folder then inside posts folder make route.js file.
 
 ######### 7> json placeholder :- collection of fake api for the testing and prototyping.
+
+######### 8> always place a component folder inside src directory . not inside app directory.
+
+######### 9> always takecare of folder structure and convention so that anyone can see and easily understand your code. 
+             
+          --> make a group of files which is in same page. like home page contain navbar , main banner , footer , feature section etc 
+
+               so in home page there are main banner and feature section that are not in other pages. means main banner and feature section are only in homepage not in other page. so make component folder of all those file which is present in homepage. 
+
+               (home) folder --> component folder --> Banner.jsx .
+                                 component folder --> Feature.jsx   
+
+              and make all this folder inside app directory. next.js will not consider round bracket () as a route.
+
+          --> now navbar , footer is the files which are present in all page so make this group also outside the app directory but inside src directory.
+              
+              component folder --> Navbar.jsx .
+              component folder --> Footer.jsx .

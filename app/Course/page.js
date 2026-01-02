@@ -15,6 +15,7 @@ const page = () => {
       <h2 className='text-xl text-center'>Mtech</h2>
 
       <Link className='text-center mt-20' href={`/Course/${ok}`}> dynamic </Link>
+      
     </div>
   )
 }
