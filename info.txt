@@ -131,7 +131,7 @@ Note :- your route name will be similar as your folder name like in abouve case 
                 If you do not want to cache the response from fetch
                 let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' }) 
 
-          > Always use fetch() for fetching the data from database in next.js because next.js provide a excellent caching feature with fetch.
+          > Always use fetch() for fetching the data from database or api in next.js because next.js provide a excellent caching feature with fetch.
 
 
 
