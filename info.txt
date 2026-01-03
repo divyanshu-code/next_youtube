@@ -73,3 +73,66 @@ Note :- your route name will be similar as your folder name like in abouve case 
               
               component folder --> Navbar.jsx .
               component folder --> Footer.jsx .
+
+######### 10> whenever we get any situation where we have to use client component or server component both in single file . we always make a another file for the     client component tool and mount that component in old file so that website not disturbed and work properly. 
+
+              suppose we have fetched the data from database in file A .this handled by server component now we want to use onclick property that is work under client component that means for using all click event we have to make a file as client component. Instead of making a file A as client component . we make another component file ( File B ) inside that we put that onlick function and mount this on file A. 
+
+              Now File A work properly for server side and client side.
+
+######### 11> component Streaming 
+
+          component Streaming is a data transfer technique that allows you to break down a route into smaller "chunks" and progressively stream them from the server to the client as they become ready.
+
+          By streaming, you can prevent slow data requests from blocking your whole page. This allows the user to see and interact with parts of the page without waiting for all the data to load before any UI can be shown to the user. this improve a UX ( user experience).
+
+          for example suppose you made one webpage which consists navbar , feature section and footer. your webpage is not working due to slow data fetch from backend or api in feature section  so your whole page is not rendering either it has navbar or footer. 
+
+          idealy the navabr and footer must show in webpage but due to that slow data fetch it is blocking itself. here component streaming work. 
+          we just separate the feature section file from the navbar and footer . use Suspence here 
+
+           <Navbar />
+
+           <Suspence fallback="Loading....."> 
+                 <FeatureSection />
+           </Suspence> 
+
+           <Footer />
+
+           now if the data is slow still navbar and footer will not block and page render properly.
+
+######### 12> caching 
+           
+          > caching means to store the data so that we can use in future efficiently . 
+          > it reduce the server load where user request a same data from server . next.js store it by default so that user does not need to request the server again for the same data. 
+          
+          > there are four type of caching 
+             - router caching (client)
+             - full router caching (server)
+             - data caching (server)
+             - request memorization (server)
+
+          > we can also remove or revalidate caching because sometime we need dynamic data with every request from server so there caching is not useful.
+             - we can revalidate this by two method 
+
+             1>Time-based Revalidation :- Revalidate data after a certain amount of time has passed and a new request is made. This is useful for data that changes infrequently.
+
+                Revalidate at most every hour
+                fetch('https://...', { 
+
+                    next: { revalidate: 3600 in second }
+
+                     })
+                
+                it means caching will be there for only 1 hour after 1 hour caching removed.
+
+             2>On-demand Revalidation: Revalidate data based on an event (e.g. form submission). On-demand revalidation can use a tag-based or path-based approach to revalidate groups of data at once. This is useful when you want to ensure the latest data is shown as soon as possible 
+
+                If you do not want to cache the response from fetch
+                let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' }) 
+
+          > Always use fetch() for fetching the data from database in next.js because next.js provide a excellent caching feature with fetch.
+
+
+
+
